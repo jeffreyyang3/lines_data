@@ -1,14 +1,36 @@
 import pandas as pd
 import json
 import sys
-df = pd.read_csv(sys.argv[1])
-
-for thing in df:
-    print(thing)
 
 
-for i in range(len(df)):
-    print(df.iloc[i]['player.metadata'])
+def initialRead(fileName):
+
+    df = pd.read_csv(fileName)
+    for thing in df:
+        print(thing)
+    return df
+
+
+def getMetadata(df, startIndex):
+    allMeta = df.iloc[startIndex]['player.allMetadata']
+    return allMeta
+
+
+def getSessionLevel(playerAllMeta):
+    sessionLevel = {}
+    for key in playerAllMeta:
+        sessionLevel['numPlayers'] = len(playerAllMeta[key]['queue'])
+        date = str(pd.to_datetime(key, unit='ms'))
+        date = date.split()[0]
+        sessionLevel['sessionDate'] = date
+        return sessionLevel
+
+
+print(initialRead("linez.csv"))
+allMetadata = json.loads(getMetadata(initialRead("linez.csv"), 0))
+
+
+print(getSessionLevel(json.loads(allMetadata['1'])))
 
 
 '''
