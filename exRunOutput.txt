@@ -1,0 +1,12 @@
+python3 exampleRun.py
+Session Date: 2019-03-25 
+Period Swap Method: bid
+Player 3: Cost: 0.01 Payoff: 7.94
+Player 1: Cost: 0.01 Payoff: 6.54
+Player 4: Cost: 0.02 Payoff: 6.68
+Player 2: Cost: 0.03 Payoff: 4.68
+period transactions
+Player 1 to Player 2, for $1.00, accepted
+Player 4 to Player 2, for $1.00, accepted
+Player 4 to Player 1, for $None, cancelled
+Player 2 to Player 4, for $2.00, accepted
