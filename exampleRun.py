@@ -1,24 +1,52 @@
 import json
+import sys
 
-js = json.loads(open('out.json').read())
-
-
-print("Session Date: {} \nPeriod Swap Method: {}".format(
-    js['sessionDate'], js['periods'][0]['swapMethod']))
-
-p1Players = js['periods'][0]['players']
+js = json.loads(open(sys.argv[1]).read())
 
 
 def printTransactions(tDict):
+
     for key in tDict:
-        print("Player {} to Player {}, for ${}, {}".format(
-            tDict[key]['requester'], tDict[key]['requestee'], tDict[key].get('bid'), tDict[key]['status']))
+        ts = json.loads(tDict[key])
+        if ts:
+            for key in ts:
+                print(
+                    "Player {} to Player {}, for ${}, {}".format(
+                        ts[key]["requester"],
+                        ts[key]["requestee"],
+                        ts[key].get("bid"),
+                        ts[key]["status"],
+                    )
+                )
+            return
 
 
-for i in range(len(p1Players)):
-    print("Player {}: Cost: {} Payoff: {}".format(
-        p1Players[i]['playerNumber'], p1Players[i]['cost'], p1Players[i]['payoff'])
+def printPeriodLevel(period):
+    print("Period Swap Method: {}".format(period["swapMethod"]))
+    for player in period["players"]:
+        printPlayerLevel(player)
+    print("all transactions:")
+    printTransactions(period["allSwaps"])
+
+
+def printPlayerLevel(player):
+    print(
+        "Player {}: Cost: {} Payoff: {} Start Position: {} End Position: {}".format(
+            player["playerNumber"],
+            player["cost"],
+            player["payoff"],
+            player["start_pos"],
+            player["end_pos"],
+        )
     )
 
-print("period transactions")
-printTransactions(p1Players[0]['history'])
+
+for period in js["periods"]:
+    printPeriodLevel(period)
+
+
+p1Players = js["periods"][0]["players"]
+
+
+# print("period transactions")
+# printTransactions(p1Players[0]["history"])

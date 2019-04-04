@@ -4,8 +4,9 @@ import sys
 
 
 def getMetadata(df, startIndex):
-    allMeta = df.iloc[startIndex]['player.allMetadata']
+    allMeta = df.iloc[startIndex]["player.allMetadata"]
     return allMeta
+
 
 # session data (date, number of subjects, exchange type) can all be taken from part of swap metadata
 # need:
@@ -13,44 +14,46 @@ def getMetadata(df, startIndex):
 
 def getSessionLevel(playerAllMeta):
     for key in playerAllMeta:
-        date = str(pd.to_datetime(key, unit='ms'))
+        date = str(pd.to_datetime(key, unit="ms"))
         date = date.split()[0]
-        return {
-            'numPlayers': len(playerAllMeta[key]['queue']),
-            'sessionDate': date
-        }
+        return {"numPlayers": len(playerAllMeta[key]["queue"]), "sessionDate": date}
 
 
 def getPeriods(base, numPlayers):
     periods = []
     for i in range(0, len(base) - 3, 4):
-        periods.append(base[i:i+4])
+        periods.append(base[i : i + 4])
     print(len(base))
     print(len(periods))
-
     return periods
 
 
 def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
     examplePlayer = df.iloc[0]
-    allSwaps = json.loads(examplePlayer['player.allMetadata'])
+    allSwaps = json.loads(examplePlayer["player.allMetadata"])
 
     return {
-        'swapMethod': examplePlayer['player.swap_method'],
-        'payMethod': examplePlayer['player.pay_method'],
-        'messageEnabled': bool(examplePlayer['player.messaging'] == 1),
-        'discrete': bool(examplePlayer['player.discrete'] == 1),
-        'allSwaps': json.loads(df.iloc[0]['player.allMetadata']),
-        'players': [{
-            'playerNumber': int(df.iloc[i]['player.id_in_group']),
-            'cost': float(df.iloc[i]['player.cost']),
-            'endowment': float(df.iloc[i]['player.endowment']),
-            'payRate': float(df.iloc[i]['player.pay_rate']),
-            'payoff': float(df.iloc[i]['player.round_payoff']),
-            'history': json.loads(df.iloc[i]['player.metadata']),
-        }
-            for i in range(df.shape[0])],
+        "swapMethod": examplePlayer["player.swap_method"],
+        "payMethod": examplePlayer["player.pay_method"],
+        "messageEnabled": bool(examplePlayer["player.messaging"] == 1),
+        "discrete": bool(examplePlayer["player.discrete"] == 1),
+        "allSwaps": json.loads(df.iloc[0]["player.allMetadata"]),
+        "players": [
+            {
+                "playerNumber": int(df.iloc[i]["player.id_in_group"]),
+                "cost": float(df.iloc[i]["player.cost"]),
+                "endowment": float(df.iloc[i]["player.endowment"]),
+                "payRate": float(df.iloc[i]["player.pay_rate"]),
+                "payoff": float(df.iloc[i]["player.round_payoff"]),
+                "history": json.loads(df.iloc[i]["player.metadata"]),
+                "start_pos": int(df.iloc[i]["player.start_pos"]),
+                "end_pos": int(df.iloc[i]["player.end_pos"]),
+            }
+            for i in range(df.shape[0])
+        ],
     }
+
+
 # check if metadata includes: player ids, timestamp, action
 # individual-session: need rounds chosen for payment, show fee,
 
@@ -58,20 +61,19 @@ def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
 topLevel = {}
 inFile = pd.read_csv(sys.argv[1])
 allMetadata = json.loads(getMetadata(inFile, 0))
-sessionLevel = getSessionLevel(json.loads(allMetadata['1']))
-sessionLevel['periods'] = [periodLevel(period)
-                           for period in getPeriods(inFile, 4)]
+sessionLevel = getSessionLevel(json.loads(allMetadata["1"]))
+sessionLevel["periods"] = [periodLevel(period) for period in getPeriods(inFile, 4)]
 # 4 players hardcoded at the moment
 
 """for key in sessionLevel['periods'][0]:
     print(key)
     print(type(sessionLevel['periods'][0][key])) """
-with open('out.json', 'w') as outfile:
+with open("out.json", "w") as outfile:
     json.dump(sessionLevel, outfile)
 
 # for thing in inFile:
 #    print(thing)
-'''
+"""
 
 for example:
   import json
@@ -119,4 +121,4 @@ structure:
 
 metadata should contain: IDs, timestamp, action, message
 
-'''
+"""
