@@ -2,6 +2,7 @@ import json
 
 js = json.loads(open('out.json').read())
 
+
 print("Session Date: {} \nPeriod Swap Method: {}".format(
     js['sessionDate'], js['periods'][0]['swapMethod']))
 

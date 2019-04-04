@@ -23,14 +23,17 @@ def getSessionLevel(playerAllMeta):
 
 def getPeriods(base, numPlayers):
     periods = []
-    for i in range(0, numPlayers - 3, 4):
+    for i in range(0, len(base) - 3, 4):
         periods.append(base[i:i+4])
+    print(len(base))
+    print(len(periods))
 
     return periods
 
 
-def periodLevel(df):
+def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
     examplePlayer = df.iloc[0]
+    allSwaps = json.loads(examplePlayer['player.allMetadata'])
 
     return {
         'swapMethod': examplePlayer['player.swap_method'],
@@ -48,14 +51,17 @@ def periodLevel(df):
         }
             for i in range(df.shape[0])],
     }
+# check if metadata includes: player ids, timestamp, action
+# individual-session: need rounds chosen for payment, show fee,
 
 
 topLevel = {}
-inFile = pd.read_csv('new1.csv')
+inFile = pd.read_csv(sys.argv[1])
 allMetadata = json.loads(getMetadata(inFile, 0))
 sessionLevel = getSessionLevel(json.loads(allMetadata['1']))
 sessionLevel['periods'] = [periodLevel(period)
                            for period in getPeriods(inFile, 4)]
+# 4 players hardcoded at the moment
 
 """for key in sessionLevel['periods'][0]:
     print(key)
