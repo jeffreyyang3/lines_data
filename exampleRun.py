@@ -1,15 +1,30 @@
 import json
 import sys
+import pandas as pd
 
 js = json.loads(open(sys.argv[1]).read())
 
 
-def printTransactions(tDict):
+def printTransactions(tDict, startTime):
+    asdf = 0
+    if startTime != 'na':
+        asdf = int(startTime)
+        print("XX")
+        print(asdf)
+        print("xx")
 
     for key in tDict:
+
         ts = json.loads(tDict[key])
+
         if ts:
             for key in ts:
+                print("bing")
+                print(int(asdf))
+                print(int(key))
+                print('bong')
+                print(str(asdf - int(key)))
+
                 print(
                     "Player {} to Player {}, for ${}, {}".format(
                         ts[key]["requester"],
@@ -25,8 +40,10 @@ def printPeriodLevel(period):
     print("Period Swap Method: {}".format(period["swapMethod"]))
     for player in period["players"]:
         printPlayerLevel(player)
-    print("all transactions:")
-    printTransactions(period["allSwaps"])
+    #print("all transactions:")
+    # printTransactions(period["allSwaps"])
+    # print("YO")
+    # print(period['entryTime'])
 
 
 def printPlayerLevel(player):
