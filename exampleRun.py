@@ -40,7 +40,7 @@ def printPeriodLevel(period):
     print("Period Swap Method: {}".format(period["swapMethod"]))
     for player in period["players"]:
         printPlayerLevel(player)
-    #print("all transactions:")
+    print("all transactions:")
     # printTransactions(period["allSwaps"])
     # print("YO")
     # print(period['entryTime'])
@@ -56,7 +56,13 @@ def printPlayerLevel(player):
             player["end_pos"],
         )
     )
-
+    print("Player " + str(player["playerNumber"]) + " history")
+    if player["history"] == 'null':
+        print('No Transactions')
+    else:
+        for time, trans in player["history"].items():
+            print(time)
+            print(trans)
 
 for period in js["periods"]:
     printPeriodLevel(period)
