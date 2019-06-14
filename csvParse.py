@@ -65,6 +65,15 @@ def createTs(timestring):
         print(timestring)
         print('problem')
 
+def getPlayerHistory(history, num):
+    playerTransactions = []
+    one = json.loads(history['1'])
+    for key in one:
+        print(one[key]['requestee'])
+
+
+
+
 
 def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
     examplePlayer = df.iloc[0]
@@ -77,13 +86,15 @@ def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
         + timedelta(hours=9)
         entryTime = entryTime.timestamp()
 
+    allMeta = json.loads(df.iloc[0]["player.allMetadata"])
+    playerHist = json.loads(df.iloc[0]["player.allMetadata"])
     return {
         "entryTime": entryTime,
         "swapMethod": examplePlayer["player.swap_method"],
         "payMethod": examplePlayer["player.pay_method"],
         "messageEnabled": bool(examplePlayer["player.messaging"] == 1),
         "discrete": bool(examplePlayer["player.discrete"] == 1),
-        "allSwaps": json.loads(df.iloc[0]["player.allMetadata"]),
+        "allSwaps": allMeta,
         # 'allSwaps': allMetaCheck(df.iloc[0]['player.allMetadata']),
         "players": [
             {
@@ -96,6 +107,7 @@ def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
                 "payoff": float(df.iloc[i]["player.round_payoff"]),
                 "history": json.loads(df.iloc[i]["player.metadata"]) if
                 type(df.iloc[i]["player.metadata"]) is not float else 'null',
+                "history": getPlayerHistory(playerHist, int(df.iloc[i]["player.id_in_group"])),
                 # for some reason, empty metadata gets read as NaN, which is a float
                 "start_pos": int(df.iloc[i]["player.start_pos"]),
                 "end_pos": int(df.iloc[i]["player.end_pos"]),
