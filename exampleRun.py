@@ -5,42 +5,28 @@ import pandas as pd
 js = json.loads(open(sys.argv[1]).read())
 
 
-def printTransactions(tDict, startTime):
-    asdf = 0
-    if startTime != 'na':
-        asdf = int(startTime)
-        print("XX")
-        print(asdf)
-        print("xx")
+def printTransactions(tList):
 
-    for key in tDict:
-
-        ts = json.loads(tDict[key])
-
-        if ts:
-            for key in ts:
-                print("bing")
-                print(int(asdf))
-                print(int(key))
-                print('bong')
-                print(str(asdf - int(key)))
-
-                print(
-                    "Player {} to Player {}, for ${}, {}".format(
-                        ts[key]["requester"],
-                        ts[key]["requestee"],
-                        ts[key].get("bid"),
-                        ts[key]["status"],
-                    )
-                )
-            return
+    for trans in tList:
+        print(
+            "Player {} to Player {}, for {}, {}, at {} seconds: message {}".format(
+                trans["requester"],
+                trans["requestee"],
+                trans.get("bid"),
+                trans["status"],
+                int(trans["timeSinceStart"]),
+                trans.get("message"),
+            )
+        )
+    return
 
 
 def printPeriodLevel(period):
     print("Period Swap Method: {}".format(period["swapMethod"]))
     for player in period["players"]:
         printPlayerLevel(player)
-    print("all transactions:")
+        printTransactions(player["history"])
+    # print("all transactions:")
     # printTransactions(period["allSwaps"])
     # print("YO")
     # print(period['entryTime'])
@@ -57,12 +43,7 @@ def printPlayerLevel(player):
         )
     )
     print("Player " + str(player["playerNumber"]) + " history")
-    if player["history"] == 'null':
-        print('No Transactions')
-    else:
-        for time, trans in player["history"].items():
-            print(time)
-            print(trans)
+
 
 for period in js["periods"]:
     printPeriodLevel(period)
