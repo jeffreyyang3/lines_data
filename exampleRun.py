@@ -26,6 +26,7 @@ def printPeriodLevel(period):
     for player in period["players"]:
         printPlayerLevel(player)
         printTransactions(player["history"])
+    print("\n\n\n\n\n")
     # print("all transactions:")
     # printTransactions(period["allSwaps"])
     # print("YO")
@@ -33,6 +34,7 @@ def printPeriodLevel(period):
 
 
 def printPlayerLevel(player):
+    print("=====================================================")
     print(
         "Player {}: Cost: {} Payoff: {} Start Position: {} End Position: {}".format(
             player["playerNumber"],
@@ -42,13 +44,14 @@ def printPlayerLevel(player):
             player["end_pos"],
         )
     )
-    print("Player " + str(player["playerNumber"]) + " history")
 
 
-for period in js["periods"]:
-    printPeriodLevel(period)
+def printSessionLevel(session):
+    for period in session["periods"]:
+        printPeriodLevel(period)
 
 
+printSessionLevel(js)
 p1Players = js["periods"][0]["players"]
 
 

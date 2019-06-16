@@ -23,8 +23,8 @@ def getSessionLevel(playerAllMeta):
 
 def getPeriods(base, numPlayers):
     periods = []
-    for i in range(0, len(base) - 7, 8):
-        periods.append(base[i : i + 8])
+    for i in range(0, len(base) - numPlayers - 1, numPlayers):
+        periods.append(base[i : i + numPlayers])
 
     return periods
 
@@ -48,6 +48,8 @@ def createTs(timestring):
 
 def getPlayerHistory(history, num, entry):
     playerTransactions = []
+    print(type(history))
+    print(history["1"] == history["7"])
     one = json.loads(history["1"])
     for key in one:
         conv = int(key) / 1000
@@ -59,7 +61,6 @@ def getPlayerHistory(history, num, entry):
 
 def periodLevel(df):  # need swap method, communication, numplayers, totaltime,
     examplePlayer = df.iloc[0]
-    print("period level")
     ts = examplePlayer["player.time_Service"]
     entryTime = "na"
     if isinstance(ts, str):
@@ -109,7 +110,6 @@ inFile = pd.read_csv(sys.argv[1])
 allMetadata = json.loads(getMetadata(inFile, 0))
 sessionLevel = getSessionLevel(json.loads(allMetadata["1"]))
 sessionLevel["periods"] = [periodLevel(period) for period in getPeriods(inFile, 8)]
-# 4 players hardcoded at the moment
 
 """for key in sessionLevel['periods'][0]:
     print(key)
@@ -117,8 +117,6 @@ sessionLevel["periods"] = [periodLevel(period) for period in getPeriods(inFile, 
 with open("out.json", "w") as outfile:
     json.dump(sessionLevel, outfile)
 
-# for thing in inFile:
-#    print(thing)
 """
 
 for example:
