@@ -1,12 +1,231 @@
-python3 exampleRun.py
-Session Date: 2019-03-25 
+Session Date: 8 Group Size: 2019-06-06
+
+
+
+
+
+
+Period Swap Method: double
+=====================================================
+Player 7: Cost: 0.964470779613641 Payoff: 2.07 Start Position: 7 End Position: -1
+Player 8 to Player 7, for None, declined, at 36 seconds: message None
+Player 8 to Player 7, for None, declined, at 8 seconds: message None
+Player 8 to Player 7, for None, declined, at 24 seconds: message None
+=====================================================
+Player 5: Cost: 0.0614609793462138 Payoff: 7.88 Start Position: 5 End Position: -1
+Player 5 to Player 6, for None, declined, at 50 seconds: message None
+Player 5 to Player 6, for None, declined, at 148 seconds: message None
+Player 6 to Player 5, for None, declined, at 10 seconds: message None
+Player 6 to Player 5, for 2.00, accepted, at 69 seconds: message None
+Player 5 to Player 6, for None, declined, at 101 seconds: message None
+=====================================================
+Player 1: Cost: 0.0778516769340324 Payoff: 8.0 Start Position: 1 End Position: 1
+=====================================================
+Player 4: Cost: 0.46628950709453204 Payoff: 1.07 Start Position: 4 End Position: -1
+Player 3 to Player 4, for None, declined, at 29 seconds: message None
+Player 3 to Player 4, for None, declined, at 82 seconds: message None
+Player 4 to Player 3, for 1.00, accepted, at 66 seconds: message None
+Player 4 to Player 3, for None, declined, at 18 seconds: message None
+=====================================================
+Player 2: Cost: 0.0527177717101184 Payoff: 7.95 Start Position: 2 End Position: 2
+Player 3 to Player 2, for None, declined, at 7 seconds: message None
+=====================================================
+Player 3: Cost: 0.162184287104231 Payoff: 5.68 Start Position: 3 End Position: -1
+Player 3 to Player 2, for None, declined, at 7 seconds: message None
+Player 3 to Player 4, for None, declined, at 29 seconds: message None
+Player 3 to Player 4, for None, declined, at 82 seconds: message None
+Player 4 to Player 3, for 1.00, accepted, at 66 seconds: message None
+Player 4 to Player 3, for None, declined, at 18 seconds: message None
+=====================================================
+Player 8: Cost: 0.576291216475484 Payoff: 2.85 Start Position: 8 End Position: -1
+Player 8 to Player 7, for None, declined, at 36 seconds: message None
+Player 8 to Player 7, for None, declined, at 8 seconds: message None
+Player 8 to Player 7, for None, declined, at 24 seconds: message None
+=====================================================
+Player 6: Cost: 0.161767475674669 Payoff: -0.32 Start Position: 6 End Position: -1
+Player 5 to Player 6, for None, declined, at 50 seconds: message None
+Player 5 to Player 6, for None, declined, at 148 seconds: message None
+Player 6 to Player 5, for None, declined, at 10 seconds: message None
+Player 6 to Player 5, for 2.00, accepted, at 69 seconds: message None
+Player 5 to Player 6, for None, declined, at 101 seconds: message None
+
+
+
+
+
+
+Period Swap Method: swap
+=====================================================
+Player 4: Cost: 0.139278054539447 Payoff: 7.44 Start Position: 4 End Position: 5
+Player 7 to Player 4, for None, declined, at 63 seconds: message None
+Player 7 to Player 4, for None, declined, at 67 seconds: message None
+Player 6 to Player 4, for None, declined, at 20 seconds: message None
+Player 5 to Player 4, for None, accepted, at 12 seconds: message None
+=====================================================
+Player 5: Cost: 0.7141410441059091 Payoff: 5.86 Start Position: 5 End Position: 4
+Player 6 to Player 5, for None, declined, at 5 seconds: message None
+Player 5 to Player 4, for None, accepted, at 13 seconds: message None
+Player 5 to Player 2, for None, declined, at 48 seconds: message None
+=====================================================
+Player 7: Cost: 0.890858792788593 Payoff: 3.55 Start Position: 7 End Position: 6
+Player 8 to Player 7, for None, declined, at 60 seconds: message None
+Player 8 to Player 7, for None, cancelled, at 104 seconds: message None
+Player 7 to Player 4, for None, declined, at 63 seconds: message None
+Player 7 to Player 4, for None, declined, at 67 seconds: message None
+Player 8 to Player 7, for None, declined, at 29 seconds: message None
+Player 8 to Player 7, for None, declined, at 3 seconds: message None
+Player 8 to Player 7, for None, declined, at 17 seconds: message None
+Player 8 to Player 7, for None, declined, at 73 seconds: message None
+Player 7 to Player 6, for None, declined, at 25 seconds: message None
+Player 7 to Player 6, for None, accepted, at 41 seconds: message None
+Player 8 to Player 7, for None, declined, at 52 seconds: message None
+Player 7 to Player 6, for None, declined, at 14 seconds: message None
+=====================================================
+Player 1: Cost: 0.45412066915250704 Payoff: 8.0 Start Position: 1 End Position: 1
+Player 2 to Player 1, for None, declined, at 3 seconds: message None
+=====================================================
+Player 8: Cost: 0.12483911631930601 Payoff: 7.25 Start Position: 8 End Position: 7
+Player 8 to Player 7, for None, declined, at 59 seconds: message None
+Player 8 to Player 7, for None, cancelled, at 104 seconds: message None
+Player 8 to Player 7, for None, declined, at 29 seconds: message None
+Player 8 to Player 7, for None, declined, at 3 seconds: message None
+Player 8 to Player 7, for None, declined, at 17 seconds: message None
+Player 8 to Player 7, for None, declined, at 73 seconds: message None
+Player 8 to Player 7, for None, declined, at 52 seconds: message None
+Player 6 to Player 8, for None, declined, at 67 seconds: message None
+Player 8 to Player 6, for None, accepted, at 46 seconds: message None
+=====================================================
+Player 3: Cost: 0.812833350562928 Payoff: 7.19 Start Position: 3 End Position: 2
+Player 2 to Player 3, for None, cancelled, at 28 seconds: message None
+Player 3 to Player 2, for None, accepted, at 16 seconds: message None
+Player 3 to Player 2, for None, declined, at 11 seconds: message None
+=====================================================
+Player 2: Cost: 0.0452047156318783 Payoff: 7.91 Start Position: 2 End Position: 3
+Player 2 to Player 3, for None, cancelled, at 28 seconds: message None
+Player 3 to Player 2, for None, accepted, at 16 seconds: message None
+Player 2 to Player 1, for None, declined, at 3 seconds: message None
+Player 3 to Player 2, for None, declined, at 11 seconds: message None
+Player 5 to Player 2, for None, declined, at 48 seconds: message None
+=====================================================
+Player 6: Cost: 0.6807107326308741 Payoff: 3.24 Start Position: 6 End Position: 8
+Player 6 to Player 5, for None, declined, at 5 seconds: message None
+Player 6 to Player 4, for None, declined, at 20 seconds: message None
+Player 7 to Player 6, for None, declined, at 25 seconds: message None
+Player 7 to Player 6, for None, accepted, at 41 seconds: message None
+Player 7 to Player 6, for None, declined, at 14 seconds: message None
+Player 6 to Player 8, for None, declined, at 67 seconds: message None
+Player 8 to Player 6, for None, accepted, at 46 seconds: message None
+
+
+
+
+
+
 Period Swap Method: bid
-Player 3: Cost: 0.01 Payoff: 7.94
-Player 1: Cost: 0.01 Payoff: 6.54
-Player 4: Cost: 0.02 Payoff: 6.68
-Player 2: Cost: 0.03 Payoff: 4.68
-period transactions
-Player 1 to Player 2, for $1.00, accepted
-Player 4 to Player 2, for $1.00, accepted
-Player 4 to Player 1, for $None, cancelled
-Player 2 to Player 4, for $2.00, accepted
+=====================================================
+Player 7: Cost: 0.39775578489261604 Payoff: 6.22 Start Position: 7 End Position: 8
+Player 8 to Player 7, for 0.50, accepted, at 12 seconds: message None
+=====================================================
+Player 3: Cost: 0.0782155762617091 Payoff: 7.84 Start Position: 3 End Position: 3
+=====================================================
+Player 5: Cost: 0.595551950857158 Payoff: 5.62 Start Position: 5 End Position: 5
+Player 6 to Player 5, for None, cancelled, at 83 seconds: message None
+Player 6 to Player 5, for None, declined, at 66 seconds: message None
+Player 6 to Player 5, for None, declined, at 33 seconds: message None
+Player 6 to Player 5, for None, declined, at 10 seconds: message None
+Player 6 to Player 5, for None, declined, at 41 seconds: message None
+Player 5 to Player 4, for None, declined, at 47 seconds: message None
+Player 5 to Player 4, for None, declined, at 13 seconds: message None
+Player 5 to Player 4, for None, declined, at 25 seconds: message None
+=====================================================
+Player 2: Cost: 0.36318888838000396 Payoff: -4.0 Start Position: 2 End Position: 1
+Player 2 to Player 1, for 2.00, accepted, at 6 seconds: message None
+=====================================================
+Player 8: Cost: 0.861649695955175 Payoff: 1.83 Start Position: 8 End Position: 7
+Player 8 to Player 6, for None, declined, at 27 seconds: message None
+Player 8 to Player 7, for 0.50, accepted, at 12 seconds: message None
+Player 8 to Player 6, for None, declined, at 48 seconds: message None
+=====================================================
+Player 6: Cost: 0.9390276004328101 Payoff: 3.3 Start Position: 6 End Position: 6
+Player 6 to Player 5, for None, cancelled, at 83 seconds: message None
+Player 6 to Player 5, for None, declined, at 66 seconds: message None
+Player 8 to Player 6, for None, declined, at 27 seconds: message None
+Player 6 to Player 5, for None, declined, at 33 seconds: message None
+Player 6 to Player 5, for None, declined, at 10 seconds: message None
+Player 6 to Player 5, for None, declined, at 41 seconds: message None
+Player 8 to Player 6, for None, declined, at 48 seconds: message None
+=====================================================
+Player 1: Cost: 0.736495604950636 Payoff: 19.26 Start Position: 1 End Position: 2
+Player 2 to Player 1, for 2.00, accepted, at 6 seconds: message None
+=====================================================
+Player 4: Cost: 0.597154450047194 Payoff: 6.21 Start Position: 4 End Position: 4
+Player 5 to Player 4, for None, declined, at 47 seconds: message None
+Player 5 to Player 4, for None, declined, at 13 seconds: message None
+Player 5 to Player 4, for None, declined, at 25 seconds: message None
+
+
+
+
+
+
+Period Swap Method: swap
+=====================================================
+Player 4: Cost: 0.9756217819599109 Payoff: 5.07 Start Position: 4 End Position: 4
+Player 5 to Player 4, for None, declined, at 14 seconds: message 
+Player 4 to Player 3, for None, declined, at 9 seconds: message 
+Player 5 to Player 4, for None, declined, at 49 seconds: message 
+Player 5 to Player 4, for None, declined, at 66 seconds: message 
+=====================================================
+Player 5: Cost: 0.22409887625056 Payoff: 7.1 Start Position: 5 End Position: 5
+Player 5 to Player 4, for None, declined, at 14 seconds: message 
+Player 6 to Player 5, for None, declined, at 74 seconds: message 
+Player 6 to Player 5, for None, declined, at 80 seconds: message hi pls
+Player 5 to Player 4, for None, declined, at 49 seconds: message 
+Player 5 to Player 4, for None, declined, at 66 seconds: message 
+Player 6 to Player 5, for None, cancelled, at 87 seconds: message None
+Player 6 to Player 5, for None, declined, at 32 seconds: message pls
+Player 6 to Player 5, for None, declined, at 59 seconds: message :)
+=====================================================
+Player 3: Cost: 0.49539778430433506 Payoff: 7.01 Start Position: 3 End Position: 3
+Player 3 to Player 2, for None, declined, at 13 seconds: message 
+Player 3 to Player 2, for None, declined, at 23 seconds: message 
+Player 4 to Player 3, for None, declined, at 9 seconds: message 
+=====================================================
+Player 2: Cost: 0.7515132598310821 Payoff: 7.25 Start Position: 2 End Position: 2
+Player 3 to Player 2, for None, declined, at 13 seconds: message 
+Player 3 to Player 2, for None, declined, at 23 seconds: message 
+Player 2 to Player 1, for None, declined, at 3 seconds: message 
+=====================================================
+Player 7: Cost: 0.0466196296404595 Payoff: 7.72 Start Position: 7 End Position: 7
+Player 7 to Player 6, for None, declined, at 53 seconds: message i love u
+Player 7 to Player 6, for None, declined, at 5 seconds: message 
+Player 7 to Player 6, for None, cancelled, at 108 seconds: message None
+Player 8 to Player 7, for None, declined, at 13 seconds: message 
+Player 7 to Player 6, for None, declined, at 94 seconds: message '_'
+Player 8 to Player 7, for None, declined, at 69 seconds: message broccoli
+Player 7 to Player 6, for None, declined, at 26 seconds: message pls
+=====================================================
+Player 1: Cost: 0.93638513712907 Payoff: 8.0 Start Position: 1 End Position: 1
+Player 2 to Player 1, for None, declined, at 3 seconds: message 
+=====================================================
+Player 6: Cost: 0.527871489876128 Payoff: 5.36 Start Position: 6 End Position: 6
+Player 7 to Player 6, for None, declined, at 53 seconds: message i love u
+Player 7 to Player 6, for None, declined, at 5 seconds: message 
+Player 6 to Player 5, for None, declined, at 74 seconds: message 
+Player 7 to Player 6, for None, cancelled, at 108 seconds: message None
+Player 7 to Player 6, for None, declined, at 94 seconds: message '_'
+Player 6 to Player 5, for None, declined, at 80 seconds: message hi pls
+Player 7 to Player 6, for None, declined, at 26 seconds: message pls
+Player 6 to Player 5, for None, cancelled, at 87 seconds: message None
+Player 6 to Player 5, for None, declined, at 32 seconds: message pls
+Player 6 to Player 5, for None, declined, at 59 seconds: message :)
+=====================================================
+Player 8: Cost: 0.0216263223667024 Payoff: 7.85 Start Position: 8 End Position: 8
+Player 8 to Player 7, for None, declined, at 13 seconds: message 
+Player 8 to Player 7, for None, declined, at 69 seconds: message broccoli
+
+
+
+
+
+

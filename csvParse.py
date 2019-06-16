@@ -24,7 +24,7 @@ def getSessionLevel(playerAllMeta):
 def getPeriods(base, numPlayers):
     periods = []
     for i in range(0, len(base) - numPlayers - 1, numPlayers):
-        periods.append(base[i : i + numPlayers])
+        periods.append(base[i: i + numPlayers])
 
     return periods
 
@@ -48,8 +48,6 @@ def createTs(timestring):
 
 def getPlayerHistory(history, num, entry):
     playerTransactions = []
-    print(type(history))
-    print(history["1"] == history["7"])
     one = json.loads(history["1"])
     for key in one:
         conv = int(key) / 1000
@@ -109,7 +107,8 @@ topLevel = {}
 inFile = pd.read_csv(sys.argv[1])
 allMetadata = json.loads(getMetadata(inFile, 0))
 sessionLevel = getSessionLevel(json.loads(allMetadata["1"]))
-sessionLevel["periods"] = [periodLevel(period) for period in getPeriods(inFile, 8)]
+sessionLevel["periods"] = [periodLevel(period)
+                           for period in getPeriods(inFile, 8)]
 
 """for key in sessionLevel['periods'][0]:
     print(key)

@@ -47,6 +47,9 @@ def printPlayerLevel(player):
 
 
 def printSessionLevel(session):
+    print("Session Date: {} Group Size: {}".format(
+        session['groupSize'], session['sessionDate']))
+    print('\n\n\n\n\n')
     for period in session["periods"]:
         printPeriodLevel(period)
 
