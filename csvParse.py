@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import sys
+import operator
 from dateutil import parser
 from datetime import timedelta
 
@@ -49,9 +50,11 @@ def createTs(timestring):
 def getPlayerHistory(history, num, entry):
     playerTransactions = []
     one = json.loads(history["1"])
+
     for key in one:
         conv = int(key) / 1000
         if one[key]["requester"] == num or one[key]["requestee"] == num:
+            one[key]["originalTS"] = key
             one[key]["timeSinceStart"] = conv - entry
             playerTransactions.append(one[key])
     return playerTransactions
@@ -109,10 +112,25 @@ allMetadata = json.loads(getMetadata(inFile, 0))
 sessionLevel = getSessionLevel(json.loads(allMetadata["1"]))
 sessionLevel["periods"] = [periodLevel(period)
                            for period in getPeriods(inFile, 8)]
-
 """for key in sessionLevel['periods'][0]:
     print(key)
     print(type(sessionLevel['periods'][0][key])) """
+
+allTransactions = {}
+playerTransactions = {}
+
+
+for period in sessionLevel['periods']:
+    for player in period['players']:
+        for transaction in player['history']:
+            if transaction['originalTS'] not in allTransactions:
+                allTransactions[transaction['originalTS']] = transaction
+
+allTransactionsList = [allTransactions[key] for key in allTransactions]
+allTransactionsList.sort(key=lambda x: int(x['originalTS']))
+for item in allTransactionsList:
+    print(item['originalTS'])
+
 with open("out.json", "w") as outfile:
     json.dump(sessionLevel, outfile)
 
