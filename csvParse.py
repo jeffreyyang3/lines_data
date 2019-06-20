@@ -117,7 +117,6 @@ sessionLevel["periods"] = [periodLevel(period)
     print(type(sessionLevel['periods'][0][key])) """
 
 allTransactions = {}
-playerTransactions = {}
 
 
 for period in sessionLevel['periods']:
@@ -128,9 +127,14 @@ for period in sessionLevel['periods']:
 
 allTransactionsList = [allTransactions[key] for key in allTransactions]
 allTransactionsList.sort(key=lambda x: int(x['originalTS']))
-for item in allTransactionsList:
-    print(item['originalTS'])
 
+allTransactionsDictDf = pd.DataFrame.from_dict(allTransactions)
+allTransactionsListDf = pd.DataFrame(allTransactionsList)
+otherDataDf = pd.DataFrame.from_dict(sessionLevel)
+
+allTransactionsDictDf.to_csv('allTransactionsDictDf.csv')
+allTransactionsListDf.to_csv('allTransactionsListDf.csv')
+otherDataDf.to_csv('otherDataDf.csv')
 with open("out.json", "w") as outfile:
     json.dump(sessionLevel, outfile)
 
